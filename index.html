@@ -16,6 +16,26 @@
 
   <meta name="theme-color" content="#0b0f14" />
 
+  <script>
+    (() => {
+      let theme = "dark";
+
+      try {
+        const savedTheme = localStorage.getItem("theme");
+
+        if (savedTheme === "light" || savedTheme === "dark") {
+          theme = savedTheme;
+        } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+          theme = "light";
+        }
+      } catch (error) {
+        theme = "dark";
+      }
+
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+
   <title>Swastik Majumder</title>
 
   <!-- Academicons -->
@@ -40,6 +60,45 @@
       --border-light: #39434d;
       --accent: #d7dde2;
       --max-width: 1160px;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    html[data-theme="light"] {
+      --bg: #f7f7f5;
+      --text: #18212a;
+      --muted: #56616b;
+      --subtle: #6e7781;
+      --border: #d8dee4;
+      --border-light: #c7cfd6;
+      --accent: #27313a;
+      color-scheme: light;
+    }
+
+    html[data-theme="light"] header {
+      background: rgba(247, 247, 245, 0.94);
+    }
+
+    html[data-theme="light"] ::selection {
+      background: #27313a;
+      color: #ffffff;
+    }
+
+    html[data-theme="light"] .intro-copy p:first-child {
+      color: #36414a;
+    }
+
+    html[data-theme="light"] .text-link:hover,
+    html[data-theme="light"] .icon-link:hover,
+    html[data-theme="light"] .publication-title:hover,
+    html[data-theme="light"] .document-title:hover {
+      color: #000000;
+    }
+
+    html[data-theme="light"] .icon-link::after {
+      background: #ffffff;
     }
 
     * {
@@ -113,6 +172,39 @@
       display: flex;
       align-items: center;
       gap: 32px;
+    }
+
+    .theme-toggle {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      margin-left: -4px;
+      padding: 0;
+      border: 1px solid var(--border-light);
+      border-radius: 50%;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      cursor: pointer;
+      transition:
+        color 0.17s ease,
+        border-color 0.17s ease,
+        transform 0.17s ease;
+    }
+
+    .theme-toggle:hover,
+    .theme-toggle:focus-visible {
+      color: var(--text);
+      border-color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .theme-toggle:focus-visible {
+      outline: 2px solid var(--text);
+      outline-offset: 3px;
     }
 
     .nav-links a {
@@ -776,6 +868,17 @@
         <a href="#notes" onclick="showTab('notes')">
           Notes
         </a>
+
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          type="button"
+          onclick="toggleTheme()"
+          aria-label="Switch to light mode"
+          title="Switch to light mode"
+        >
+          <i class="fa-solid fa-sun" aria-hidden="true"></i>
+        </button>
 
       </nav>
 
@@ -1505,6 +1608,49 @@
   </footer>
 
   <script>
+    function applyTheme(theme) {
+      const selectedTheme = theme === "light" ? "light" : "dark";
+      const isLight = selectedTheme === "light";
+      const toggle = document.getElementById("theme-toggle");
+      const themeColor = document.querySelector('meta[name="theme-color"]');
+
+      document.documentElement.setAttribute("data-theme", selectedTheme);
+
+      if (themeColor) {
+        themeColor.setAttribute("content", isLight ? "#f7f7f5" : "#0b0f14");
+      }
+
+      if (toggle) {
+        const label = isLight
+          ? "Switch to dark mode"
+          : "Switch to light mode";
+        const icon = toggle.querySelector("i");
+
+        toggle.setAttribute("aria-label", label);
+        toggle.setAttribute("title", label);
+        toggle.setAttribute("aria-pressed", String(isLight));
+
+        if (icon) {
+          icon.className = isLight
+            ? "fa-solid fa-moon"
+            : "fa-solid fa-sun";
+        }
+      }
+    }
+
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      const nextTheme = currentTheme === "light" ? "dark" : "light";
+
+      try {
+        localStorage.setItem("theme", nextTheme);
+      } catch (error) {
+        // The theme still changes when browser storage is unavailable.
+      }
+
+      applyTheme(nextTheme);
+    }
+
     function updateActiveNav(tabId) {
       document
         .querySelectorAll(".nav-links a")
@@ -1550,6 +1696,8 @@
     ];
 
     window.addEventListener("DOMContentLoaded", () => {
+      applyTheme(document.documentElement.getAttribute("data-theme"));
+
       const hash = window.location.hash.replace("#", "");
 
       const initialTab = validTabs.includes(hash)
