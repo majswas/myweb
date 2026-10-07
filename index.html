@@ -865,9 +865,11 @@
           Talks/Posters
         </a>
 
+        <!-- Notes navigation temporarily disabled.
         <a href="#notes" onclick="showTab('notes')">
           Notes
         </a>
+        -->
 
         <button
           id="theme-toggle"
@@ -1507,7 +1509,7 @@
 
     </div>
 
-    <!-- Notes -->
+    <!-- Notes temporarily disabled; retained for re-enabling.
 
     <div id="notes" class="tabs">
 
@@ -1589,6 +1591,8 @@
 
     </div>
 
+    -->
+
   </main>
 
   <footer>
@@ -1664,6 +1668,10 @@
     }
 
     function showTab(tabId, changeHash = true) {
+      if (!validTabs.includes(tabId)) {
+        tabId = "home";
+      }
+
       document
         .querySelectorAll(".tabs")
         .forEach((tab) => {
@@ -1691,8 +1699,7 @@
       "home",
       "research",
       "teaching",
-      "documents",
-      "notes"
+      "documents"
     ];
 
     window.addEventListener("DOMContentLoaded", () => {
