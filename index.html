@@ -50,6 +50,9 @@
       --border-light: #39434d;
       --accent: #d7dde2;
       --max-width: 1160px;
+
+      /* Standard text size, matching the teaching section. */
+      --body-font-size: 0.93rem;
     }
 
     html {
@@ -98,6 +101,7 @@
     body {
       margin: 0;
       min-height: 100vh;
+      font-size: var(--body-font-size);
       font-family:
         Inter,
         -apple-system,
@@ -197,7 +201,7 @@
       position: relative;
       padding: 24px 0 22px;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: var(--body-font-size);
       font-weight: 500;
       letter-spacing: 0.015em;
       text-decoration: none;
@@ -247,7 +251,7 @@
       display: flex;
       align-items: center;
       gap: 20px;
-      margin-bottom: 35px;
+      margin: 0 0 28px;
       color: var(--text);
       font-size: 0.78rem;
       font-weight: 650;
@@ -305,8 +309,8 @@
     .intro-copy {
       max-width: 730px;
       color: var(--muted);
-      font-size: 1.03rem;
-      line-height: 1.8;
+      font-size: var(--body-font-size);
+      line-height: 1.72;
     }
 
     .intro-copy p:first-child {
@@ -316,7 +320,7 @@
     .contact-line {
       margin-top: 29px;
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: var(--body-font-size);
     }
 
     .portrait-wrap {
@@ -404,7 +408,7 @@
       max-width: 850px;
       margin-bottom: 40px;
       color: var(--muted);
-      font-size: 0.98rem;
+      font-size: var(--body-font-size);
     }
 
     .research-grid {
@@ -419,7 +423,7 @@
       margin: 0 0 9px;
       color: var(--text);
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.02rem;
+      font-size: var(--body-font-size);
       font-weight: 600;
       line-height: 1.4;
     }
@@ -427,8 +431,8 @@
     .research-item p {
       margin: 0;
       color: var(--muted);
-      font-size: 0.91rem;
-      line-height: 1.7;
+      font-size: var(--body-font-size);
+      line-height: 1.72;
     }
 
     /* Affiliations and education */
@@ -452,14 +456,14 @@
       margin-bottom: 10px;
       color: var(--text);
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.04rem;
+      font-size: var(--body-font-size);
       font-weight: 600;
       line-height: 1.46;
     }
 
     .fact p {
       color: var(--muted);
-      font-size: 0.91rem;
+      font-size: var(--body-font-size);
     }
 
     .fact p:last-child {
@@ -478,7 +482,7 @@
     .dates {
       margin-top: -5px;
       color: var(--subtle) !important;
-      font-size: 0.82rem !important;
+      font-size: var(--body-font-size);
       letter-spacing: 0.015em;
     }
 
@@ -488,15 +492,7 @@
       padding: 48px 0 82px;
     }
 
-    /* Compact academic lists */
-
-    #research .section-label,
-    #documents .section-label {
-      margin: 0 0 22px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.09em;
-    }
+    /* Publications and documents */
 
     .publication-list,
     .document-list {
@@ -504,8 +500,8 @@
       margin: 0;
       padding-left: 1.5rem;
       color: var(--muted);
-      font-size: 0.94rem;
-      line-height: 1.65;
+      font-size: var(--body-font-size);
+      line-height: 1.72;
     }
 
     .publication,
@@ -515,13 +511,13 @@
 
     .publication + .publication,
     .document-list li + li {
-      margin-top: 17px;
+      margin-top: 27px;
     }
 
     .publication::marker,
     .document-list li::marker {
       color: var(--subtle);
-      font-size: 0.85rem;
+      font-size: var(--body-font-size);
     }
 
     .publication-title,
@@ -531,8 +527,8 @@
       color: var(--text);
       font-family: inherit;
       font-size: inherit;
-      font-weight: 400;
-      font-style: italic;
+      font-weight: 550;
+      font-style: normal;
       line-height: inherit;
       text-decoration: none;
     }
@@ -599,7 +595,7 @@
     .teaching-entry p {
       margin: 0;
       color: var(--muted);
-      font-size: 0.93rem;
+      font-size: var(--body-font-size);
     }
 
     .teaching-entry strong {
@@ -612,7 +608,7 @@
     footer {
       padding: 30px 0 41px;
       color: var(--subtle);
-      font-size: 0.8rem;
+      font-size: var(--body-font-size);
     }
 
     .footer-inner {
@@ -666,7 +662,7 @@
 
       .nav-links a {
         padding: 21px 0 19px;
-        font-size: 0.78rem;
+        font-size: var(--body-font-size);
       }
 
       .nav-links a::after {
@@ -710,7 +706,7 @@
 
     @media (max-width: 500px) {
       .site-name {
-        font-size: 0.93rem;
+        font-size: var(--body-font-size);
       }
 
       .nav-links {
@@ -720,12 +716,11 @@
 
       .nav-links a {
         flex-shrink: 0;
-        font-size: 0.7rem;
+        font-size: var(--body-font-size);
       }
 
       .section-label {
         gap: 14px;
-        font-size: 0.73rem;
       }
     }
   </style>
@@ -1047,7 +1042,7 @@
               arXiv preprint (2026).
             </span>
 
-            <!-- QED arXiv link: paste the URL into the empty href below. -->
+            <!-- Paste the QED arXiv URL into the empty href below. -->
             <a
               class="text-link arxiv-link"
               href=""
