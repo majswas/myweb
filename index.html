@@ -1,19 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="Swastik Majumder â€” Physics PhD student at The Ohio State University working on hot and dense matter, perturbative QCD, statistical mechanics, stochastic processes, and random tensors."
+    content="Swastik Majumder &mdash; Physics PhD student at The Ohio State University working on hot and dense matter, perturbative QCD, statistical mechanics, stochastic processes, and random tensors."
   />
-
   <meta name="theme-color" content="#0b0f14" />
 
   <script>
@@ -38,13 +31,10 @@
 
   <title>Swastik Majumder</title>
 
-  <!-- Academicons -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css"
   />
-
-  <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -64,6 +54,7 @@
 
     html {
       color-scheme: dark;
+      scroll-behavior: smooth;
     }
 
     html[data-theme="light"] {
@@ -92,8 +83,7 @@
 
     html[data-theme="light"] .text-link:hover,
     html[data-theme="light"] .icon-link:hover,
-    html[data-theme="light"] .publication-title:hover,
-    html[data-theme="light"] .document-title:hover {
+    html[data-theme="light"] .publication-title:hover {
       color: #000000;
     }
 
@@ -103,10 +93,6 @@
 
     * {
       box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
     }
 
     body {
@@ -502,83 +488,87 @@
       padding: 48px 0 82px;
     }
 
-    /* Publications */
+    /* Compact academic lists */
 
-    .publication-list {
+    #research .section-label,
+    #documents .section-label {
+      margin: 0 0 22px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+    }
+
+    .publication-list,
+    .document-list {
+      max-width: 1020px;
       margin: 0;
-      padding: 0;
-      list-style: none;
-      counter-reset: publications 4;
-      max-width: 1080px;
+      padding-left: 1.5rem;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.65;
     }
 
-    .publication {
-      counter-increment: publications -1;
-      display: grid;
-      grid-template-columns: 58px minmax(0, 1fr);
-      gap: 25px;
-      padding: 0;
+    .publication,
+    .document-list li {
+      padding-left: 0.3rem;
     }
 
-    .publication + .publication {
-      margin-top: 46px;
+    .publication + .publication,
+    .document-list li + li {
+      margin-top: 17px;
     }
 
-    .publication-number::before {
-      content: counter(publications, decimal-leading-zero);
-      display: block;
-      padding-top: 4px;
+    .publication::marker,
+    .document-list li::marker {
       color: var(--subtle);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
+      font-size: 0.85rem;
     }
 
-    .publication-title {
+    .publication-title,
+    .document-list .document-title {
       display: inline;
-      max-width: 920px;
       margin: 0;
       color: var(--text);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.17rem;
-      font-weight: 600;
-      line-height: 1.48;
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
-
-    .publication-title:hover {
-      color: #ffffff;
-    }
-
-    .publication-title::after,
-    .document-title::after {
-      content: " \2197";
-      color: var(--subtle);
-      font-family: Inter, Arial, sans-serif;
-      font-size: 0.68em;
+      font-family: inherit;
+      font-size: inherit;
       font-weight: 400;
-      opacity: 0;
-      transition: opacity 0.15s ease;
+      font-style: italic;
+      line-height: inherit;
+      text-decoration: none;
     }
 
-    .publication-title:hover::after,
-    .publication-title:focus-visible::after,
-    .document-title:hover::after,
-    .document-title:focus-visible::after {
-      opacity: 1;
+    a.publication-title {
+      border-bottom: 1px solid transparent;
+      transition:
+        color 0.15s ease,
+        border-color 0.15s ease;
     }
 
-    .publication-authors {
-      margin: 11px 0 3px;
-      color: var(--muted);
-      font-size: 0.89rem;
+    a.publication-title:hover,
+    a.publication-title:focus-visible {
+      color: var(--text);
+      border-bottom-color: var(--border-light);
     }
 
-    .publication-meta {
+    .publication-authors,
+    .publication-meta,
+    .document-list .document-context,
+    .document-list .document-date {
+      display: inline;
       margin: 0;
-      color: var(--subtle);
-      font-size: 0.88rem;
+      color: var(--muted);
+      font-size: inherit;
+    }
+
+    .arxiv-link {
+      white-space: nowrap;
+    }
+
+    .arxiv-link[href=""] {
+      color: var(--muted);
+      border-bottom: none;
+      cursor: default;
+      pointer-events: none;
     }
 
     /* Teaching */
@@ -615,71 +605,6 @@
     .teaching-entry strong {
       color: var(--text);
       font-weight: 550;
-    }
-
-    /* Documents and notes */
-
-    .documents-list {
-      max-width: 1020px;
-    }
-
-    .document-year {
-      display: grid;
-      grid-template-columns: 105px minmax(0, 1fr);
-      gap: 42px;
-    }
-
-    .document-year + .document-year {
-      margin-top: 52px;
-    }
-
-    .document-year-label {
-      padding-top: 3px;
-      color: var(--subtle);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 0.95rem;
-      letter-spacing: 0.08em;
-    }
-
-    .document-entry {
-      display: grid;
-      grid-template-columns: 90px minmax(0, 1fr);
-      gap: 24px;
-    }
-
-    .document-entry + .document-entry {
-      margin-top: 34px;
-    }
-
-    .document-type {
-      padding-top: 5px;
-      color: var(--subtle);
-      font-size: 0.72rem;
-      font-weight: 650;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-
-    .document-title {
-      display: inline;
-      color: var(--text);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.14rem;
-      font-weight: 600;
-      line-height: 1.48;
-      text-decoration: none;
-    }
-
-    .document-context {
-      margin: 10px 0 2px;
-      color: var(--muted);
-      font-size: 0.89rem;
-    }
-
-    .document-date {
-      margin: 0;
-      color: var(--subtle);
-      font-size: 0.86rem;
     }
 
     /* Footer */
@@ -765,15 +690,6 @@
         padding: 45px 0 67px;
       }
 
-      .publication {
-        grid-template-columns: 40px minmax(0, 1fr);
-        gap: 14px;
-      }
-
-      .publication + .publication {
-        margin-top: 39px;
-      }
-
       .teaching-entry {
         grid-template-columns: 1fr;
         gap: 4px;
@@ -781,15 +697,6 @@
 
       .teaching-entry + .teaching-entry {
         margin-top: 25px;
-      }
-
-      .document-year {
-        grid-template-columns: 1fr;
-        gap: 13px;
-      }
-
-      .document-year + .document-year {
-        margin-top: 43px;
       }
 
       .footer-inner {
@@ -820,35 +727,18 @@
         gap: 14px;
         font-size: 0.73rem;
       }
-
-      .publication {
-        grid-template-columns: 32px minmax(0, 1fr);
-      }
-
-      .publication-title,
-      .document-title {
-        font-size: 1.08rem;
-      }
-
-      .document-entry {
-        grid-template-columns: 1fr;
-        gap: 4px;
-      }
     }
   </style>
 </head>
 
 <body>
-
   <header>
     <div class="container nav">
-
       <div class="site-name">
         Swastik Majumder
       </div>
 
       <nav class="nav-links" aria-label="Main navigation">
-
         <a href="#home" onclick="showTab('home')">
           Home
         </a>
@@ -865,12 +755,6 @@
           Talks/Posters
         </a>
 
-        <!-- Notes navigation temporarily disabled.
-        <a href="#notes" onclick="showTab('notes')">
-          Notes
-        </a>
-        -->
-
         <button
           id="theme-toggle"
           class="theme-toggle"
@@ -881,28 +765,21 @@
         >
           <i class="fa-solid fa-sun" aria-hidden="true"></i>
         </button>
-
       </nav>
-
     </div>
   </header>
 
   <main class="container">
-
     <!-- Home -->
 
     <div id="home" class="tabs active">
-
       <section class="hero">
-
         <div class="intro">
-
           <div class="small-label">
             About
           </div>
 
           <div class="intro-copy">
-
             <p>
               I am a graduate student in Physics at The Ohio State
               University and a member of the Center for Cosmology and
@@ -926,7 +803,6 @@
               systems, nonequilibrium statistical mechanics, and
               spectral questions associated with random tensors.
             </p>
-
           </div>
 
           <p class="contact-line">
@@ -938,14 +814,12 @@
               majumderswastik09@gmail.com
             </a>
           </p>
-
         </div>
 
         <aside
           class="portrait-wrap"
           aria-label="Portrait and academic profiles"
         >
-
           <img
             class="portrait"
             src="myself.jpeg"
@@ -956,7 +830,6 @@
             class="profile-links"
             aria-label="Academic and professional profiles"
           >
-
             <a
               class="icon-link"
               href="https://scholar.google.com/citations?user=fEQ2NbIAAAAJ&hl=en&oi=ao"
@@ -965,10 +838,7 @@
               data-label="Google Scholar"
               aria-label="Google Scholar"
             >
-              <i
-                class="ai ai-google-scholar"
-                aria-hidden="true"
-              ></i>
+              <i class="ai ai-google-scholar" aria-hidden="true"></i>
             </a>
 
             <a
@@ -1001,10 +871,7 @@
               data-label="LinkedIn"
               aria-label="LinkedIn"
             >
-              <i
-                class="fa-brands fa-linkedin-in"
-                aria-hidden="true"
-              ></i>
+              <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
             </a>
 
             <a
@@ -1015,20 +882,13 @@
               data-label="Curriculum Vitae"
               aria-label="Curriculum Vitae"
             >
-              <i
-                class="fa-regular fa-file-lines"
-                aria-hidden="true"
-              ></i>
+              <i class="fa-regular fa-file-lines" aria-hidden="true"></i>
             </a>
-
           </div>
-
         </aside>
-
       </section>
 
       <section class="home-section">
-
         <div class="section-label">
           Research interests
         </div>
@@ -1040,7 +900,6 @@
         </p>
 
         <div class="research-grid">
-
           <article class="research-item">
             <h3>Hot and dense quark matter</h3>
             <p>
@@ -1079,21 +938,16 @@
               mathematical and statistical physics.
             </p>
           </article>
-
         </div>
-
       </section>
 
       <section class="home-section">
-
         <div class="section-label">
           Affiliations &amp; education
         </div>
 
         <div class="facts-grid">
-
           <div class="fact">
-
             <div class="fact-title">
               Present affiliation
             </div>
@@ -1110,17 +964,14 @@
             <p>
               <strong>Graduate Research Associate</strong>
             </p>
-
           </div>
 
           <div class="fact">
-
             <div class="fact-title">
               Visiting student &amp; collaborator
             </div>
 
             <div class="affiliation-entry">
-
               <div class="institution">
                 Tata Institute of Fundamental Research
               </div>
@@ -1130,11 +981,9 @@
               <p class="dates">
                 May 2024 &ndash; June 2025
               </p>
-
             </div>
 
             <div class="affiliation-entry">
-
               <div class="institution">
                 Yukawa Institute for Theoretical Physics
               </div>
@@ -1144,19 +993,15 @@
               <p class="dates">
                 May 2023 &ndash; May 2024
               </p>
-
             </div>
-
           </div>
 
           <div class="fact">
-
             <div class="fact-title">
               Education
             </div>
 
             <div class="affiliation-entry">
-
               <div class="institution">
                 M.S. Physics
               </div>
@@ -1166,11 +1011,9 @@
                 Kolkata<br />
                 India &mdash; 2025
               </p>
-
             </div>
 
             <div class="affiliation-entry">
-
               <div class="institution">
                 B.S. Physics
               </div>
@@ -1180,143 +1023,107 @@
                 Kolkata<br />
                 India &mdash; 2025
               </p>
-
             </div>
-
           </div>
-
         </div>
-
       </section>
-
     </div>
 
     <!-- Publications -->
 
     <div id="research" class="tabs">
-
       <section class="page-section">
+        <h2 class="section-label">Publications</h2>
 
-        <div class="section-label">
-          Publications
-        </div>
-
-        <ol class="publication-list">
-
+        <ol class="publication-list" reversed start="4">
           <li class="publication">
+            <span class="publication-authors">
+              Tyler Gorda and Swastik Majumder.
+            </span>
+            <span class="publication-title">
+              Hot and dense QED at N<sup>3</sup>LO: infrared sector.
+            </span>
+            <span class="publication-meta">
+              arXiv preprint (2026).
+            </span>
 
-            <div
-              class="publication-number"
-              aria-hidden="true"
-            ></div>
-
-            <div>
-
-              <a
-                class="publication-title"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://journals.aps.org/pre/accepted/10.1103/gv3z-nqz6"
-              >
-                Stochastic systems with Bose-Hubbard interactions:
-                Effects of bias on particles on a random comb
-              </a>
-
-              <p class="publication-authors">
-                Swastik Majumder, Mustansir Barma
-              </p>
-
-              <p class="publication-meta">
-                Physical Review E, 2026
-              </p>
-
-            </div>
-
+            <!-- QED arXiv link: paste the URL into the empty href below. -->
+            <a
+              class="text-link arxiv-link"
+              href=""
+              target="_blank"
+              rel="noopener noreferrer"
+              onclick="if (!this.getAttribute('href')) return false;"
+            >[arXiv]</a>
           </li>
 
           <li class="publication">
-
-            <div
-              class="publication-number"
-              aria-hidden="true"
-            ></div>
-
-            <div>
-
-              <a
-                class="publication-title"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://journals.aps.org/pre/accepted/10.1103/g8xn-2gvq"
-              >
-                Stochastic systems with Bose-Hubbard interactions:
-                Effects of bias on particles on a one-dimensional
-                lattice
-              </a>
-
-              <p class="publication-authors">
-                Swastik Majumder, Mustansir Barma
-              </p>
-
-              <p class="publication-meta">
-                Physical Review E, 2026
-              </p>
-
-            </div>
-
+            <span class="publication-authors">
+              Swastik Majumder and Mustansir Barma.
+            </span>
+            <a
+              class="publication-title"
+              href="https://journals.aps.org/pre/accepted/10.1103/gv3z-nqz6"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Stochastic systems with Bose-Hubbard interactions:
+              Effects of bias on particles on a random comb.
+            </a>
+            <span class="publication-meta">
+              Physical Review E (2026).
+            </span>
           </li>
 
           <li class="publication">
-
-            <div
-              class="publication-number"
-              aria-hidden="true"
-            ></div>
-
-            <div>
-
-              <a
-                class="publication-title"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://doi.org/10.1093/ptep/ptae136"
-              >
-                Three cases of complex eigenvalue/vector distributions
-                of symmetric order-three random tensors
-              </a>
-
-              <p class="publication-authors">
-                Swastik Majumder, Naoki Sasakura
-              </p>
-
-              <p class="publication-meta">
-                Progress of Theoretical and Experimental Physics, 2024
-              </p>
-
-            </div>
-
+            <span class="publication-authors">
+              Swastik Majumder and Mustansir Barma.
+            </span>
+            <a
+              class="publication-title"
+              href="https://journals.aps.org/pre/accepted/10.1103/g8xn-2gvq"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Stochastic systems with Bose-Hubbard interactions:
+              Effects of bias on particles on a one-dimensional lattice.
+            </a>
+            <span class="publication-meta">
+              Physical Review E (2026).
+            </span>
           </li>
 
+          <li class="publication">
+            <span class="publication-authors">
+              Swastik Majumder and Naoki Sasakura.
+            </span>
+            <a
+              class="publication-title"
+              href="https://doi.org/10.1093/ptep/ptae136"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Three cases of complex eigenvalue/vector distributions
+              of symmetric order-three random tensors.
+            </a>
+            <span class="publication-meta">
+              Progress of Theoretical and Experimental Physics (2024).
+            </span>
+          </li>
         </ol>
-
       </section>
-
     </div>
 
     <!-- Teaching -->
 
     <div id="teaching" class="tabs">
-
       <section class="page-section">
-
         <div class="section-label">
           Teaching experience
         </div>
 
         <div class="teaching-list">
-
           <div class="teaching-entry">
-
             <div class="teaching-term">
               Spring 2026
             </div>
@@ -1326,11 +1133,9 @@
               Physics 1251: E&amp;M, Waves, Optics, Modern Physics
               &mdash; The Ohio State University
             </p>
-
           </div>
 
           <div class="teaching-entry">
-
             <div class="teaching-term">
               Fall 2025
             </div>
@@ -1340,11 +1145,9 @@
               Physics 1251: E&amp;M, Waves, Optics, Modern Physics
               &mdash; The Ohio State University
             </p>
-
           </div>
 
           <div class="teaching-entry">
-
             <div class="teaching-term">
               Spring 2025
             </div>
@@ -1354,11 +1157,9 @@
               Statistical Mechanics &mdash; Indian Institute of
               Science Education and Research Kolkata
             </p>
-
           </div>
 
           <div class="teaching-entry">
-
             <div class="teaching-term">
               Spring 2025
             </div>
@@ -1368,11 +1169,9 @@
               Probability and Statistics II &mdash; Indian Institute
               of Science Education and Research Kolkata
             </p>
-
           </div>
 
           <div class="teaching-entry">
-
             <div class="teaching-term">
               Autumn 2024
             </div>
@@ -1382,11 +1181,9 @@
               Condensed Matter Physics &mdash; Indian Institute of
               Science Education and Research Kolkata
             </p>
-
           </div>
 
           <div class="teaching-entry">
-
             <div class="teaching-term">
               Spring 2024
             </div>
@@ -1396,209 +1193,51 @@
               Statistical Mechanics &mdash; Indian Institute of
               Science Education and Research Kolkata
             </p>
-
           </div>
-
         </div>
-
       </section>
-
     </div>
 
     <!-- Talks and posters -->
 
     <div id="documents" class="tabs">
-
       <section class="page-section">
+        <h2 class="section-label">Talks/Posters</h2>
 
-        <div class="section-label">
-          Talks/Posters
-        </div>
+        <ul class="document-list">
+          <li>
+            <span class="document-title">
+              The N<sup>3</sup>LO mixed contribution to the pressure
+              of a hot and dense relativistic QED plasma.
+            </span>
+            <span class="document-context">
+              Poster, Department of Physics Poster Session,
+              The Ohio State University,
+            </span>
+            <span class="document-date">
+              August 19, 2026.
+            </span>
+          </li>
 
-        <div class="documents-list">
-
-          <section class="document-year">
-
-            <div class="document-year-label">
-              2026
-            </div>
-
-            <div>
-
-              <article class="document-entry">
-
-                <div class="document-type">
-                  Poster
-                </div>
-
-                <div>
-
-                  <a
-                    class="document-title"
-                    href="./Poster0813.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    The N<sup>3</sup>LO Mixed Contribution to the
-                    Pressure of a Hot and Dense Relativistic QED Plasma
-                  </a>
-
-                  <p class="document-context">
-                    Department of Physics Poster Session &middot;
-                    The Ohio State University
-                  </p>
-
-                  <p class="document-date">
-                    August 19, 2026
-                  </p>
-
-                </div>
-
-              </article>
-
-            </div>
-
-          </section>
-
-          <section class="document-year">
-
-            <div class="document-year-label">
-              2025
-            </div>
-
-            <div>
-
-              <article class="document-entry">
-
-                <div class="document-type">
-                  M.S. thesis
-                </div>
-
-                <div>
-
-                  <a
-                    class="document-title"
-                    href="./MS_Thesis.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Stochastic Processes in Multi-occupancy Lattice
-                    Systems
-                  </a>
-
-                  <p class="document-context">
-                    Indian Institute of Science Education and Research
-                    Kolkata
-                  </p>
-
-                  <p class="document-date">
-                    May 2025
-                  </p>
-
-                </div>
-
-              </article>
-
-            </div>
-
-          </section>
-
-        </div>
-
+          <li>
+            <span class="document-title">
+              Stochastic Processes in Multi-occupancy Lattice Systems.
+            </span>
+            <span class="document-context">
+              M.S. thesis, Indian Institute of Science Education
+              and Research Kolkata,
+            </span>
+            <span class="document-date">
+              May 2025.
+            </span>
+          </li>
+        </ul>
       </section>
-
     </div>
-
-    <!-- Notes temporarily disabled; retained for re-enabling.
-
-    <div id="notes" class="tabs">
-
-      <section class="page-section">
-
-        <div class="section-label">
-          Notes
-        </div>
-
-        <div class="documents-list">
-
-          <section class="document-year">
-
-            <div class="document-year-label">
-              2026
-            </div>
-
-            <div>
-
-              <article class="document-entry">
-
-                <div class="document-type">
-                  Quantum field theory
-                </div>
-
-                <div>
-
-                  <a
-                    class="document-title"
-                    href="./QFT.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    QFT Notes
-                  </a>
-
-                  <p class="document-context">
-                    A collection of topics in pedagogical QFT.
-                  </p>
-
-                </div>
-
-              </article>
-
-              <article class="document-entry">
-
-                <div class="document-type">
-                  Gauge theory
-                </div>
-
-                <div>
-
-                  <a
-                    class="document-title"
-                    href="./YM1.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Gauge Fixing and the Faddeev&ndash;Popov Procedure
-                  </a>
-
-                  <p class="document-context">
-                    A concise introduction for Yang&ndash;Mills theory,
-                    covering gauge redundancy, the Faddeev&ndash;Popov
-                    construction, ghost fields, and covariant gauges.
-                  </p>
-
-                </div>
-
-              </article>
-
-            </div>
-
-          </section>
-
-        </div>
-
-      </section>
-
-    </div>
-
-    -->
-
   </main>
 
   <footer>
-
     <div class="container footer-inner">
-
       <p>
         &copy; 2026 Swastik Majumder
       </p>
@@ -1606,9 +1245,7 @@
       <p>
         Physics &middot; The Ohio State University
       </p>
-
     </div>
-
   </footer>
 
   <script>
@@ -1621,13 +1258,17 @@
       document.documentElement.setAttribute("data-theme", selectedTheme);
 
       if (themeColor) {
-        themeColor.setAttribute("content", isLight ? "#f7f7f5" : "#0b0f14");
+        themeColor.setAttribute(
+          "content",
+          isLight ? "#f7f7f5" : "#0b0f14"
+        );
       }
 
       if (toggle) {
         const label = isLight
           ? "Switch to dark mode"
           : "Switch to light mode";
+
         const icon = toggle.querySelector("i");
 
         toggle.setAttribute("aria-label", label);
@@ -1643,7 +1284,9 @@
     }
 
     function toggleTheme() {
-      const currentTheme = document.documentElement.getAttribute("data-theme");
+      const currentTheme =
+        document.documentElement.getAttribute("data-theme");
+
       const nextTheme = currentTheme === "light" ? "dark" : "light";
 
       try {
@@ -1656,15 +1299,13 @@
     }
 
     function updateActiveNav(tabId) {
-      document
-        .querySelectorAll(".nav-links a")
-        .forEach((link) => {
-          link.classList.remove("active-nav");
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.classList.remove("active-nav");
 
-          if (link.getAttribute("href") === "#" + tabId) {
-            link.classList.add("active-nav");
-          }
-        });
+        if (link.getAttribute("href") === "#" + tabId) {
+          link.classList.add("active-nav");
+        }
+      });
     }
 
     function showTab(tabId, changeHash = true) {
@@ -1672,11 +1313,9 @@
         tabId = "home";
       }
 
-      document
-        .querySelectorAll(".tabs")
-        .forEach((tab) => {
-          tab.classList.remove("active");
-        });
+      document.querySelectorAll(".tabs").forEach((tab) => {
+        tab.classList.remove("active");
+      });
 
       const activeTab = document.getElementById(tabId);
 
@@ -1703,13 +1342,19 @@
     ];
 
     window.addEventListener("DOMContentLoaded", () => {
-      applyTheme(document.documentElement.getAttribute("data-theme"));
+      applyTheme(
+        document.documentElement.getAttribute("data-theme")
+      );
+
+      const arxivLink = document.querySelector(".arxiv-link");
+
+      if (arxivLink && !arxivLink.getAttribute("href")) {
+        arxivLink.setAttribute("aria-disabled", "true");
+        arxivLink.setAttribute("tabindex", "-1");
+      }
 
       const hash = window.location.hash.replace("#", "");
-
-      const initialTab = validTabs.includes(hash)
-        ? hash
-        : "home";
+      const initialTab = validTabs.includes(hash) ? hash : "home";
 
       showTab(initialTab, false);
     });
@@ -1722,6 +1367,5 @@
       }
     });
   </script>
-
 </body>
 </html>
