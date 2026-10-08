@@ -50,8 +50,6 @@
       --border-light: #39434d;
       --accent: #d7dde2;
       --max-width: 1160px;
-
-      /* Standard text size, matching the teaching section. */
       --body-font-size: 0.93rem;
     }
 
@@ -493,6 +491,18 @@
     }
 
     /* Publications and documents */
+
+    .publication-note {
+      max-width: 1020px;
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: var(--body-font-size);
+    }
+
+    .publication-authors strong {
+      color: var(--text);
+      font-weight: 700;
+    }
 
     .publication-list,
     .document-list {
@@ -1030,10 +1040,15 @@
       <section class="page-section">
         <h2 class="section-label">Publications</h2>
 
+        <p class="publication-note">
+          For the high-energy physics publications below, authors are
+          listed alphabetically by surname.
+        </p>
+
         <ol class="publication-list" reversed start="4">
           <li class="publication">
             <span class="publication-authors">
-              Tyler Gorda and Swastik Majumder.
+              T. Gorda and <strong>S. Majumder</strong>.
             </span>
             <span class="publication-title">
               Hot and dense QED at N<sup>3</sup>LO: infrared sector.
@@ -1054,7 +1069,7 @@
 
           <li class="publication">
             <span class="publication-authors">
-              Swastik Majumder and Mustansir Barma.
+              <strong>S. Majumder</strong> and M. Barma.
             </span>
             <a
               class="publication-title"
@@ -1072,7 +1087,7 @@
 
           <li class="publication">
             <span class="publication-authors">
-              Swastik Majumder and Mustansir Barma.
+              <strong>S. Majumder</strong> and M. Barma.
             </span>
             <a
               class="publication-title"
@@ -1090,7 +1105,7 @@
 
           <li class="publication">
             <span class="publication-authors">
-              Swastik Majumder and Naoki Sasakura.
+              <strong>S. Majumder</strong> and N. Sasakura.
             </span>
             <a
               class="publication-title"
