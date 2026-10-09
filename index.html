@@ -566,17 +566,6 @@
       font-size: inherit;
     }
 
-    .arxiv-link {
-      white-space: nowrap;
-    }
-
-    .arxiv-link[href=""] {
-      color: var(--muted);
-      border-bottom: none;
-      cursor: default;
-      pointer-events: none;
-    }
-
     /* Teaching */
 
     .teaching-list {
@@ -1050,21 +1039,17 @@
             <span class="publication-authors">
               T. Gorda and <strong>S. Majumder</strong>.
             </span>
-            <span class="publication-title">
-              Hot and dense QED at N<sup>3</sup>LO: infrared sector.
-            </span>
-            <span class="publication-meta">
-              arXiv preprint (2026).
-            </span>
-
-            <!-- Paste the QED arXiv URL into the empty href below. -->
             <a
-              class="text-link arxiv-link"
-              href=""
+              class="publication-title"
+              href="https://arxiv.org/abs/2610.10771"
               target="_blank"
               rel="noopener noreferrer"
-              onclick="if (!this.getAttribute('href')) return false;"
-            >[arXiv]</a>
+            >
+              Hot and dense QED at N<sup>3</sup>LO: infrared sector.
+            </a>
+            <span class="publication-meta">
+              arXiv:2610.10771 (2026).
+            </span>
           </li>
 
           <li class="publication">
@@ -1355,13 +1340,6 @@
       applyTheme(
         document.documentElement.getAttribute("data-theme")
       );
-
-      const arxivLink = document.querySelector(".arxiv-link");
-
-      if (arxivLink && !arxivLink.getAttribute("href")) {
-        arxivLink.setAttribute("aria-disabled", "true");
-        arxivLink.setAttribute("tabindex", "-1");
-      }
 
       const hash = window.location.hash.replace("#", "");
       const initialTab = validTabs.includes(hash) ? hash : "home";
