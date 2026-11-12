@@ -602,6 +602,108 @@
       font-weight: 550;
     }
 
+
+    /* Blog / essays — shares the website's original color variables */
+
+    .blog-article {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .blog-eyebrow {
+      margin: 0 0 13px;
+      color: var(--subtle);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .blog-title {
+      margin: 0 0 13px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.15rem, 4.3vw, 3.1rem);
+      line-height: 1.2;
+      font-weight: 500;
+      letter-spacing: -0.028em;
+      color: var(--text);
+    }
+
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 0 0 40px;
+      color: var(--subtle);
+      font-size: 0.84rem;
+    }
+
+    .blog-meta .text-link {
+      color: var(--muted);
+    }
+
+    .blog-body {
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.06rem, 1.4vw, 1.17rem);
+      line-height: 1.9;
+    }
+
+    .blog-body p {
+      margin: 0 0 1.55em;
+    }
+
+    .blog-endnote {
+      margin-top: 42px;
+      padding-top: 23px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.83rem;
+      line-height: 1.75;
+    }
+
+    .blog-endnote p {
+      margin: 0 0 10px;
+    }
+
+    .blog-endnote strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    @media (max-width: 700px) {
+      .blog-meta { margin-bottom: 30px; }
+      .blog-body { line-height: 1.82; }
+    }
+
+    /* Keep every navigation item visible on narrow phones. */
+    @media (max-width: 500px) {
+      .nav-links {
+        gap: 10px;
+        flex-wrap: wrap;
+        overflow-x: visible;
+        justify-content: flex-start;
+        padding-bottom: 9px;
+      }
+
+      .nav-links a {
+        flex-shrink: 0;
+        padding: 12px 0 10px;
+        font-size: 0.82rem;
+      }
+
+      .nav-links a::after {
+        bottom: 5px;
+      }
+
+      .theme-toggle {
+        width: 30px;
+        height: 30px;
+        margin-left: auto;
+      }
+    }
+
     /* Footer */
 
     footer {
@@ -722,6 +824,27 @@
         gap: 14px;
       }
     }
+
+    @media (max-width: 500px) {
+      .nav-links {
+        gap: 10px;
+        flex-wrap: wrap;
+        overflow-x: visible;
+        justify-content: flex-start;
+        padding-bottom: 9px;
+      }
+      .nav-links a {
+        flex-shrink: 0;
+        padding: 12px 0 10px;
+        font-size: 0.82rem;
+      }
+      .nav-links a::after { bottom: 5px; }
+      .theme-toggle {
+        width: 30px;
+        height: 30px;
+        margin-left: auto;
+      }
+    }
   </style>
 </head>
 
@@ -747,6 +870,10 @@
 
         <a href="#documents" onclick="showTab('documents')">
           Talks/Posters
+        </a>
+
+        <a href="#blog" onclick="showTab('blog')">
+          Blog
         </a>
 
         <button
@@ -1235,6 +1362,49 @@
         </ul>
       </section>
     </div>
+
+    <!-- Blog -->
+
+    <div id="blog" class="tabs">
+      <section class="page-section">
+        <h2 class="section-label">Blog</h2>
+
+        <article class="blog-article" aria-labelledby="joy-of-the-climb-title">
+          <p class="blog-eyebrow">Personal essay</p>
+          <h1 id="joy-of-the-climb-title" class="blog-title">The Joy of the Climb</h1>
+
+          <div class="blog-meta">
+            <span>Swastik Majumder</span>
+            <span aria-hidden="true">&middot;</span>
+            <a class="text-link" href="the-joy-of-the-climb.pdf"
+               target="_blank" rel="noopener noreferrer">Read the original PDF</a>
+          </div>
+
+          <div class="blog-body">
+          <p>
+            The recent deluge of scientific and mathematical progress driven by large language models is nothing short of a revolution. It may be the grandest answer yet to that ancient itch of our reptilian brain to automate mundane tasks. We physicists no longer find much joie de vivre in grinding through those nasty integrals. We have, we tell ourselves, a loftier task: contemplating what the result actually means. But an uncomfortable question lurks beneath that reassurance. What happens when these machines become better than us at the thinking, too? They already make a persuasive case. They have prodigious compute and a near-encyclopedic command of every corner of physics. With these, they can manipulate expressions and bring the relevant knowledge to bear on a problem in a few hours. The same problem might occupy our twenty-watt brains for weeks, or even months.
+          </p>
+
+          <p>
+            This sends me back to a more elementary question: why did I choose this path at all? Why do any of us devote our lives to one of the most rapidly flourishing sciences of the past three centuries? Is it to deepen our understanding of Nature, and, with luck, to publish in Nature along the way? I come from a family with barely any scientific background. I was drawn to physics in school simply because it seemed at once simple and deep. It reached into nearly everything happening around me, and understanding even a small piece of it brought a quiet, sublime joy. For a theorist, that joy is wonderfully inexpensive: a pinch of infinite patience and a few loose sheets of paper will do. There is also something in it that affirms the human will, our perennial and almost stubborn desire to truly understand. For me, the longing to know something deeply has always been the primary aim. That it also enlarges the frontier of human knowledge is a welcome companion on the journey.
+          </p>
+
+          <p>
+            Some who have made towering contributions to this enterprise believe that these formidable tools, with “some” human intervention, will let us make greater strides in physics than ever before. They may well be right. My disquiet is for people like me, who cherish the hike itself: the uncharted terrain, the unforeseen roadblocks, the occasional (non-fatal!) slip, and finally the hard won reverence of the summit. To be airlifted to the peak is not the same as having climbed it. I harbor no ambition to become a personal assistant to these machines, spending my days deciphering their calculations, proofs, and results. That is a rather dreary prospect for someone who has spent the better part of three lustrums believing that doing physics is a personal odyssey, an intimate pursuit of truths about our Universe.
+          </p>
+
+          <p>
+            Perhaps, then, the path forward is less a question of what these machines can do than of what we refuse to surrender. The summit will always be there for the taking. The climb, I suspect, will remain ours only if we insist on walking it.
+          </p>
+          </div>
+
+          <aside class="blog-endnote" aria-label="Essay authorship note">
+            <p><strong>Written by:</strong> Swastik Majumder.</p>
+            <p><strong>AI note:</strong> This essay was created in grammarly with its own word suggestions, no LLM was used to write the contents of this essay.</p>
+          </aside>
+        </article>
+      </section>
+    </div>
   </main>
 
   <footer>
@@ -1339,7 +1509,8 @@
       "home",
       "research",
       "teaching",
-      "documents"
+      "documents",
+      "blog"
     ];
 
     window.addEventListener("DOMContentLoaded", () => {
